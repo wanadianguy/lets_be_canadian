@@ -1,0 +1,10 @@
+.home {
+    margin-top: 6rem;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+
+.homeLogo {
+    margin-bottom: 1.5rem;
+}
