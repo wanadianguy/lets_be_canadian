@@ -1,6 +1,6 @@
 {
-  "name": "lets-be-canadian",
-  "version": "0.1.0",
+  "name": "lets-be-canadian-front",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
