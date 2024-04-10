@@ -1,6 +1,6 @@
 'use client';
 import './application-dashboard.css';
-import {ApplicationCard} from '@/components/application-card/application-card';
+import {ApplicationCard} from '@/components/application-card';
 
 const ApplicationDashboard = () => (
     <div className="application-dashboard-page">

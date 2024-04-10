@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import './home.css';
-import {Button} from '@/components/button/button';
+import {Button} from '@/components/button';
 
 const Home = () => (
     <div className='home-page'>

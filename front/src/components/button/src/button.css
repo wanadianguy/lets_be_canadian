@@ -1,4 +1,4 @@
-.buttonComponent {
+.button-component {
     display: block;
     background-color: white;
     border: none;
@@ -8,9 +8,9 @@
     font-weight: 500;
 }
 
-.buttonComponent:hover {
+.button-component:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0 0.7rem 2.9rem 0;
 }
-.buttonComponent:active {
+.button-component:active {
     box-shadow: inset rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
 }
