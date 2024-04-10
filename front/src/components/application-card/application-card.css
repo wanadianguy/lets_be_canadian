@@ -1,0 +1,18 @@
+.application-card-button {
+    display: block;
+    background-color: white;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 50rem;
+    height: 10rem;
+}
+
+.application-card-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.7rem 2.9rem 0;
+}
+.application-card-button:active {
+    box-shadow: inset rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
+}

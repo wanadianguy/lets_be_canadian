@@ -1,0 +1,7 @@
+.application-dashboard-page {
+    margin-top: 5rem;
+    display: grid;
+    gap: 1.5rem;
+    justify-content: center;
+    justify-items: center;
+}

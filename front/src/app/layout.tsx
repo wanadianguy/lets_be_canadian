@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import React from "react";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import React from 'react';
+import {Header} from '@/components/header/header';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Let's be Canadian",
-  description: "Immigration helper",
+  description: 'Immigration helper',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header/>
+        {children}
+      </body>
     </html>
   );
 }

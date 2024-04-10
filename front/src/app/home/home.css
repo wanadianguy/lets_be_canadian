@@ -1,10 +1,10 @@
-.home {
-    margin-top: 6rem;
+.home-page {
+    margin-top: 8rem;
     display: grid;
     justify-content: center;
     justify-items: center;
 }
 
-.homeLogo {
+.home-logo {
     margin-bottom: 1.5rem;
 }

@@ -1,6 +1,6 @@
 import './button.css';
 import {ButtonProps} from './button.type';
-import {buttonBackgroundColor, buttonLabelColor} from "./button.utils";
+import {buttonBackgroundColor, buttonLabelColor} from './button.utils';
 
 export const Button = (props: ButtonProps) =>
     <button
