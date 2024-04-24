@@ -1,0 +1,14 @@
+.input-text-container {
+    background-color: white;
+    border: rgba(159, 159, 168, 0.2) solid 1px;
+    border-radius: 0.8rem;
+    width: 30rem;
+    height: 2rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.input-text-container:focus {
+    border: transparent solid 1px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
+}

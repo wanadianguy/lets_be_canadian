@@ -4,6 +4,7 @@ import {buttonBackgroundColor, buttonLabelColor} from './button.utils';
 
 export const Button = (props: ButtonProps) =>
     <button
+        type={props.type ?? 'button'}
         className={`button-component ${props.className}`}
         onClick={props.onClick}
         style={{

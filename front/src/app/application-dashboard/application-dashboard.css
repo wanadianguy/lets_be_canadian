@@ -1,7 +1,21 @@
 .application-dashboard-page {
     margin-top: 5rem;
     display: grid;
-    gap: 1.5rem;
+    row-gap: 1.5rem;
     justify-content: center;
     justify-items: center;
+}
+
+.application-dashboard-page-form {
+    margin: 12rem 0 5rem 0;
+    display: grid;
+    row-gap: 5rem;
+    justify-content: center;
+    justify-items: center;
+}
+
+.application-dashboard-page-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
 }
