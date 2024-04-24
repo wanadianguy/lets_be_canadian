@@ -19,10 +19,12 @@
 }
 
 .application-card-information {
+    margin-left: 1.2rem;
     display: grid;
     overflow: hidden;
     max-width: 37rem;
     justify-items: left;
+    text-align: left;
 }
 
 .application-card-name {
@@ -36,6 +38,13 @@
     font-size: 0.7rem;
     font-weight: 300;
     color: grey;
+}
+
+.application-card-company {
+    font-size: 1.1rem;
+    overflow: clip;
+    max-height: 1.5rem;
+    font-weight: 400;
 }
 
 .application-card-status {

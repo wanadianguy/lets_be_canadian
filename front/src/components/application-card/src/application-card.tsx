@@ -13,6 +13,9 @@ export const ApplicationCard = ({...props}: ApplicationCardProps) => (
             <span className="application-card-name">
                 {props.name}
             </span>
+            <span className="application-card-company">
+                {props.company}
+            </span>
             <span className="application-card-date">
                 {props.date}
             </span>

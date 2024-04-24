@@ -7,4 +7,4 @@ export type Application = {
     description: string;
 }
 
-type ApplicationStatus = 'draft' | 'in progress' | 'done';
+export type ApplicationStatus = 'draft' | 'in progress' | 'done';
