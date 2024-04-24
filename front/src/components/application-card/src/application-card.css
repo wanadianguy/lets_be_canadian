@@ -1,13 +1,14 @@
 .application-card-button {
-    display: block;
+    display: flex;
     background-color: white;
     border: none;
     border-radius: 0.8rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
-    font-size: 1.2rem;
-    font-weight: 500;
     width: 50rem;
-    height: 10rem;
+    height: 7rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
 .application-card-button:hover {
@@ -15,4 +16,40 @@
 }
 .application-card-button:active {
     box-shadow: inset rgba(100, 100, 111, 0.2) 0 0.7rem 2.9rem 0;
+}
+
+.application-card-information {
+    display: grid;
+    overflow: hidden;
+    max-width: 37rem;
+    justify-items: left;
+}
+
+.application-card-name {
+    font-size: 1.2rem;
+    overflow: clip;
+    max-height: 1.5rem;
+    font-weight: 500;
+}
+
+.application-card-date {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: grey;
+}
+
+.application-card-status {
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.application-card-icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: url("assets/arrow.svg")
 }
