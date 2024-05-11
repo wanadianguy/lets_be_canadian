@@ -1,0 +1,57 @@
+name: "lets-be-canadian"
+services:
+  database:
+    container_name: "database"
+    build:
+      context: "./back"
+      dockerfile: "database.Dockerfile"
+    ports:
+      - "27017:27017"
+    networks:
+      - "database"
+    profiles:
+      - all
+      - database
+      - back
+
+  api:
+    container_name: "api"
+    platform: linux/amd64
+    depends_on:
+      - database
+    build:
+      context: "./back"
+      dockerfile: "api.Dockerfile"
+    ports:
+      - "3001:3000"
+    networks:
+      - "database"
+      - "api"
+    profiles:
+      - all
+      - back
+
+  front:
+    container_name: "front"
+    platform: linux/amd64
+    depends_on:
+      - api
+    build:
+      context: "./front"
+      dockerfile: "front.Dockerfile"
+    ports:
+      - "3000:3000"
+    networks:
+      - "front"
+      - "api"
+    profiles:
+      - all
+      - front
+
+networks:
+  database:
+    driver: bridge
+  api:
+    driver: bridge
+  front:
+    driver: bridge

@@ -14,7 +14,7 @@ const ApplicationDashboard = () => {
     const saveApplication = (index: number, status: ApplicationStatus, company: string, name: string, description: string) => {
         if (index >= 0) {
             applicationList[index] = {
-                id: applicationList[index].id,
+                _id: applicationList[index]._id,
                 status: status,
                 date: applicationList[index].date,
                 company: company,
@@ -30,21 +30,21 @@ const ApplicationDashboard = () => {
         // TODO: integrate the backend call (need backend)
         setApplicationList(
             [{
-                id: '1',
+                _id: '1',
                 status: 'draft',
                 date: '2024-04-24',
                 company: 'Axa',
                 name: 'Software engineer',
                 description: 'This is the description'
             }, {
-                id: '2',
+                _id: '2',
                 status: 'in progress',
                 date: '2024-04-24',
                 company: 'Axa',
                 name: 'Software engineer',
                 description: 'This is the description'
             }, {
-                id: '2',
+                _id: '2',
                 status: 'done',
                 date: '2024-04-24',
                 company: 'Axa',
@@ -56,6 +56,7 @@ const ApplicationDashboard = () => {
 
     return isEditing
         ? (
+            // TODO: need a return button
             <>
                 <form id="application-form" className="application-dashboard-page-form">
                     <InputText
@@ -125,13 +126,14 @@ const ApplicationDashboard = () => {
                         backgroundColor="red"/>
                 </span>
             </>
+            // TODO: delete option ?
         )
         : (
             <div className="application-dashboard-page">
                 {
                     applicationList.map((application, index) => (
                         <ApplicationCard
-                            key={application.id}
+                            key={application._id}
                             date={application.date}
                             company={application.company}
                             name={application.name}
