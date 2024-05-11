@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "rm -r .next && rm -r node_modules",
     "lint": "next lint"
   },
   "dependencies": {

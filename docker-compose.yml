@@ -9,10 +9,11 @@ services:
       - "27017:27017"
     networks:
       - "database"
+      - "api"
     profiles:
       - all
-      - database
       - back
+      - database
 
   api:
     container_name: "api"
@@ -25,7 +26,6 @@ services:
     ports:
       - "3001:3000"
     networks:
-      - "database"
       - "api"
     profiles:
       - all

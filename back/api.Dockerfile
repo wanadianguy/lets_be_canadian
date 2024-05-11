@@ -6,7 +6,9 @@ RUN pacman -Sy --noconfirm nodejs
 
 RUN pacman -Sy --noconfirm npm
 
-COPY ./ ./
+COPY ./ ./api
+
+WORKDIR ./api
 
 RUN npm run clean
 
