@@ -5,3 +5,5 @@ node_modules
 README.md
 eslint.config.js
 .gitignore
+api.Dockerfile
+database.Dockerfile
