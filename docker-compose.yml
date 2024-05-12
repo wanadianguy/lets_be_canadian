@@ -10,7 +10,6 @@ services:
     profiles:
       - all
       - backend
-      - database
 
   api:
     container_name: "api"
@@ -41,7 +40,6 @@ services:
       - "3000:3000"
     networks:
       - "frontend"
-      - "api"
     profiles:
       - all
       - frontend

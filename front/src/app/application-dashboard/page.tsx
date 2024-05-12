@@ -13,7 +13,7 @@ const ApplicationDashboard = () => {
     const [applicationIndex, setApplicationIndex] = useState<number>(-1);
 
     const getApplicationsRequest = () => {
-        fetch('http://api:3001/applications', {
+        fetch('http://localhost:3001/applications', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const ApplicationDashboard = () => {
     };
 
     const saveApplicationRequest = (application: Application) => {
-        fetch('http://api:3001/applications', {
+        fetch('http://localhost:3001/applications', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
