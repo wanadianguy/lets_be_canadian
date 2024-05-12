@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "npx tsc",
-    "clean": "rm -rf dist && rm -rf node_modules"
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "setup": "npm ci --omit=dev && npm run build"
   },
   "dependencies": {
     "fastify": "^4.26.2",

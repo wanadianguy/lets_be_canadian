@@ -5,15 +5,54 @@ import {useEffect, useState} from 'react';
 import {Application, ApplicationStatus} from './application-dashboard.type';
 import {InputText} from '@/components/input-text/input-text';
 import {Button} from '@/components/button';
+import {currentDate} from '@/app/application-dashboard/application-dashboard.utils';
 
 const ApplicationDashboard = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [applicationList, setApplicationList] = useState<Application[]>([]);
     const [applicationIndex, setApplicationIndex] = useState<number>(-1);
 
+    const getApplicationsRequest = () => {
+        fetch('http://api:3001/applications', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                } else {
+                    response.json().then(data => setApplicationList(data));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
+
+    const saveApplicationRequest = (application: Application) => {
+        fetch('http://api:3001/applications', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(application)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
+
     const saveApplication = (index: number, status: ApplicationStatus, company: string, name: string, description: string) => {
+        let applicationToSave: Application;
         if (index >= 0) {
-            applicationList[index] = {
+            applicationToSave = {
                 _id: applicationList[index]._id,
                 status: status,
                 date: applicationList[index].date,
@@ -22,37 +61,24 @@ const ApplicationDashboard = () => {
                 description: description
             };
         }
-        // TODO: integrate the case in which the application doesn't exists (need backend)
-        // TODO: integrate backend call (need backend)
+        else {
+            applicationToSave = {
+                status: status,
+                date: currentDate(),
+                company: company,
+                name: name,
+                description: description
+            };
+        }
+        saveApplicationRequest(applicationToSave);
     };
 
     useEffect(() => {
-        // TODO: integrate the backend call (need backend)
-        setApplicationList(
-            [{
-                _id: '1',
-                status: 'draft',
-                date: '2024-04-24',
-                company: 'Axa',
-                name: 'Software engineer',
-                description: 'This is the description'
-            }, {
-                _id: '2',
-                status: 'in progress',
-                date: '2024-04-24',
-                company: 'Axa',
-                name: 'Software engineer',
-                description: 'This is the description'
-            }, {
-                _id: '2',
-                status: 'done',
-                date: '2024-04-24',
-                company: 'Axa',
-                name: 'Software engineer',
-                description: 'This is the description'
-            }]
-        );
-    }, []);
+        if (!isEditing) {
+            getApplicationsRequest();
+            setApplicationIndex(-1);
+        }
+    }, [isEditing]);
 
     return isEditing
         ? (
@@ -147,8 +173,8 @@ const ApplicationDashboard = () => {
                 <Button
                     label="Create new application"
                     onClick={() => {
-                        setApplicationIndex(-1);
                         setIsEditing(true);
+                        setApplicationIndex(-1);
                     }}
                     width={50}
                     height={5}

@@ -17,14 +17,14 @@ services:
 
   api:
     container_name: "api"
-    platform: linux/amd64
+    platform: linux/arm64
     depends_on:
       - database
     build:
       context: "./back"
       dockerfile: "api.Dockerfile"
     ports:
-      - "3001:3000"
+      - "3001:3001"
     networks:
       - "api"
     profiles:
@@ -33,7 +33,7 @@ services:
 
   front:
     container_name: "front"
-    platform: linux/amd64
+    platform: linux/arm64
     depends_on:
       - api
     build:

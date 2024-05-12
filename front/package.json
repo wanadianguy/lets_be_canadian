@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "start": "next start",
+    "dev": "next dev",
+    "build": "next build",
     "clean": "rm -rf .next && rm -rf node_modules",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup": "npm ci --omit=dev && npm run build"
   },
   "dependencies": {
+    "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

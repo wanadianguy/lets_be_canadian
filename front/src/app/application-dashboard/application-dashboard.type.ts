@@ -1,5 +1,5 @@
 export type Application = {
-    _id: string;
+    _id?: string;
     status: ApplicationStatus;
     date: string;
     company: string;

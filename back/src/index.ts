@@ -7,9 +7,10 @@ mongoose.connect('mongodb://admin:password@database:27017')
     .then(() => {
         console.log('Database connected');
         app.register(applicationController, {prefix: '/applications'});
-        app.listen({ port: 3000 });
+        app.listen({ port: 3001 })
+            .then(() => console.log('Server is up'));
     })
     .catch((error) => {
-        console.log('Database connection failed:\n', error);
+        console.log('An error has occurred:\n', error);
         process.exit(1);
     });
