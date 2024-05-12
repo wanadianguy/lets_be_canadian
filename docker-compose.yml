@@ -5,14 +5,11 @@ services:
     build:
       context: "./back"
       dockerfile: "database.Dockerfile"
-    ports:
-      - "27017:27017"
     networks:
       - "database"
-      - "api"
     profiles:
       - all
-      - back
+      - backend
       - database
 
   api:
@@ -27,12 +24,13 @@ services:
       - "3001:3001"
     networks:
       - "api"
+      - "database"
     profiles:
       - all
-      - back
+      - backend
 
-  front:
-    container_name: "front"
+  frontend:
+    container_name: "frontend"
     platform: linux/arm64
     depends_on:
       - api
@@ -42,16 +40,16 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - "front"
+      - "frontend"
       - "api"
     profiles:
       - all
-      - front
+      - frontend
 
 networks:
   database:
     driver: bridge
   api:
     driver: bridge
-  front:
+  frontend:
     driver: bridge

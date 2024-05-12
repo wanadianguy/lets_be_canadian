@@ -1,0 +1,9 @@
+name: "lets-be-canadian-database"
+services:
+  database:
+    container_name: "database"
+    build:
+      context: "."
+      dockerfile: "database.Dockerfile"
+    ports:
+      - "27017:27017"

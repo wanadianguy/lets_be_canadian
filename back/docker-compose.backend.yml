@@ -1,0 +1,29 @@
+name: "lets-be-canadian-backend"
+services:
+  database:
+    container_name: "database"
+    build:
+      context: "."
+      dockerfile: "database.Dockerfile"
+    networks:
+      - "database"
+
+  api:
+    container_name: "api"
+    platform: linux/arm64
+    depends_on:
+      - database
+    build:
+      context: "."
+      dockerfile: "api.Dockerfile"
+    ports:
+      - "3001:3001"
+    networks:
+      - "api"
+      - "database"
+
+networks:
+  database:
+    driver: bridge
+  api:
+    driver: bridge
